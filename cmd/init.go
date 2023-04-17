@@ -5,7 +5,6 @@ package cmd
 
 import (
 	"turnscoffeeintoscripts/am/pkg/config"
-	"turnscoffeeintoscripts/am/pkg/terminal"
 
 	"github.com/spf13/cobra"
 )
@@ -21,12 +20,13 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		if exists, location := config.AMConfigExists(); exists {
+		/*if exists, location := config.AMConfigExists(); exists {
 			terminal.ErrorMessage("%s/%s.%s config file already exists. (Use 'reinit' to overwrite)\n", location, config.FileName, config.FileType)
 		} else {
 			filepath := config.CreateAMConfig()
 			terminal.InfoMessage("Created config at %s\n", filepath)
-		}
+		}*/
+		config.Setup()
 	},
 }
 
